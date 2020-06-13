@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -21,8 +18,9 @@ public class Question extends EntityBase {
     @NonNull
     private String content;
     @NonNull
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<Answer> answerList;
+    @NonNull
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "test_id")
