@@ -4,6 +4,7 @@ import com.rsjava.quizdto.model.Answer;
 import com.rsjava.quizdto.model.Question;
 import com.rsjava.quizdto.model.Test;
 import com.rsjava.quizdto.repository.TestRepository;
+import com.rsjava.quizdto.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,11 +14,11 @@ public class TestData implements CommandLineRunner {
 
     public static final boolean CORRECT = true;
     public static final boolean INCORRECT = false;
-    private TestRepository testRepository;
+    private TestService testService;
 
     @Autowired
-    public TestData(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public TestData(TestService testService) {
+        this.testService = testService;
     }
 
     @Override
@@ -47,6 +48,6 @@ public class TestData implements CommandLineRunner {
         test.addQuestion(question);
         test.addQuestion(question2);
         test.addQuestion(question3);
-        testRepository.save(test);
+        testService.save(test);
     }
 }

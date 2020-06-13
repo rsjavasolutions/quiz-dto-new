@@ -19,4 +19,8 @@ public class TestService {
         return testRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("There is no test number: " + id));
     }
+
+    public Test save(Test test){
+        return testRepository.save(test);
+    }
 }
