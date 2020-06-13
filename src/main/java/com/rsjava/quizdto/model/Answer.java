@@ -5,7 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.Entity;
+
 @Data
+@Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Answer extends EntityBase {
