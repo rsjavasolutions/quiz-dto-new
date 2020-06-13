@@ -9,9 +9,11 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "answers")
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Answer extends EntityBase {
@@ -20,7 +22,6 @@ public class Answer extends EntityBase {
     private String name;
     @NonNull
     private boolean isCorrect;
-    @NonNull
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "question_id")
